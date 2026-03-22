@@ -1,10 +1,10 @@
-# Mark Quach — Portfolio Website
+# Mark Quach - Portfolio Website
 
 A terminal-themed personal portfolio website showcasing my work experience, projects, and technical skills. Built with a retro CLI aesthetic featuring interactive elements like a 3D rotating tech sphere, git-commit-styled experience timeline, and GitHub-inspired project cards.
 
 ## Screenshots
+<img width="1327" height="478" alt="image" src="https://github.com/user-attachments/assets/ae2e33c6-9cce-470e-bf71-202bc7e165fa" />
 
->
 
 ## Table of Contents
 
@@ -62,11 +62,11 @@ npm run lint
 
 ### Key Features
 
-- **Interactive 3D Tech Sphere** — Canvas-based rotating sphere displaying 30+ technologies with drag interaction
-- **Git Commit Timeline** — Work experience styled as git commits with hash IDs
-- **GitHub-style Project Cards** — Featured repositories with language indicators, tech tags, and demo links
-- **Terminal UI** — Window chrome, command-line formatting, and JSON-styled contact info
-- **Responsive Design** — Fully responsive across mobile, tablet, and desktop
+- **Interactive 3D Tech Sphere** - Canvas-based rotating sphere displaying 30+ technologies with drag interaction
+- **Git Commit Timeline** - Work experience styled as git commits with hash IDs
+- **GitHub-style Project Cards** - Featured repositories with language indicators, tech tags, and demo links
+- **Terminal UI** - Window chrome, command-line formatting, and JSON-styled contact info
+- **Responsive Design** - Fully responsive across mobile, tablet, and desktop
 
 ## Project Structure
 
