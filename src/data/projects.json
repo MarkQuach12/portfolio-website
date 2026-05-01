@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Student Mark Book",
+    "description": "Full-stack classroom management platform with role-based access control, AI-powered chatbot using the Anthropic Claude API, and a relational PostgreSQL database with 10+ entities. Actively used to manage 4 classes and 20+ students.",
+    "tech": ["React", "TypeScript", "Spring Boot", "PostgreSQL", "Material-UI", "Claude API"],
+    "languages": ["Java", "TypeScript"],
+    "stars": null,
+    "forks": null,
+    "github": "https://github.com/MarkQuach12/student-mark-book",
+    "demo": "https://student-mark-book.vercel.app/"
+  },
+  {
+    "name": "HSC Predict",
+    "description": "Full-stack HSC planning platform enabling NSW students to predict scaled marks and analyse Band 6 performance across 10,000+ historical entries with 95% prediction accuracy.",
+    "tech": ["React", "TypeScript", "Flask", "Supabase", "ShadCN", "Tailwind CSS"],
+    "languages": ["TypeScript", "Python"],
+    "stars": null,
+    "forks": null,
+    "github": "https://github.com/MarkQuach12/HSCRandomTools",
+    "demo": "https://hsc-random-tools.vercel.app/"
+  },
+  {
+    "name": "Solar Quality Central",
+    "description": "Informative website for Solar Quality Central featuring a headless CMS, AI chatbot, and admin content management system. Currently a work in progress.",
+    "tech": ["Next.js", "ShadCN", "Express", "Node.js", "Docker", "Tailwind CSS"],
+    "languages": ["TypeScript", "JavaScript"],
+    "stars": null,
+    "forks": null,
+    "github": null,
+    "demo": null
+  }
+]

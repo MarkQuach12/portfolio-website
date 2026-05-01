@@ -1,46 +1,8 @@
-import { ExternalLink, Star, GitFork, BookMarked, Github } from 'lucide-react'
+import { Star, GitFork, BookMarked, Github } from 'lucide-react'
+import projects from '../data/projects.json'
+import languageColors from '../data/language-colors.json'
 
-const projects = [
-  {
-    name: 'Student Mark Book',
-    description: 'Full-stack classroom management platform with role-based access control, AI-powered chatbot using the Anthropic Claude API, and a relational PostgreSQL database with 10+ entities. Actively used to manage 4 classes and 20+ students.',
-    tech: ['React', 'TypeScript', 'Spring Boot', 'PostgreSQL', 'Material-UI', 'Claude API'],
-    languages: [
-      { name: 'Java', color: '#ED8B00' },
-      { name: 'TypeScript', color: '#3178C6' },
-    ],
-    stars: null,
-    forks: null,
-    github: 'https://github.com/MarkQuach12/student-mark-book',
-    demo: 'https://student-mark-book.vercel.app/',
-  },
-  {
-    name: 'HSC Predict',
-    description: 'Full-stack HSC planning platform enabling NSW students to predict scaled marks and analyse Band 6 performance across 10,000+ historical entries with 95% prediction accuracy.',
-    tech: ['React', 'TypeScript', 'Flask', 'Supabase', 'ShadCN', 'Tailwind CSS'],
-    languages: [
-      { name: 'TypeScript', color: '#3178C6' },
-      { name: 'Python', color: '#3776AB' },
-    ],
-    stars: null,
-    forks: null,
-    github: 'https://github.com/MarkQuach12/HSCRandomTools',
-    demo: 'https://hsc-random-tools.vercel.app/',
-  },
-  {
-    name: 'Solar Quality Central',
-    description: 'Informative website for Solar Quality Central featuring a headless CMS, AI chatbot, and admin content management system. Currently a work in progress.',
-    tech: ['Next.js', 'ShadCN', 'Express', 'Node.js', 'Docker', 'Tailwind CSS'],
-    languages: [
-      { name: 'TypeScript', color: '#3178C6' },
-      { name: 'JavaScript', color: '#F7DF1E' },
-    ],
-    stars: null,
-    forks: null,
-    github: null,
-    demo: null,
-  },
-]
+const FALLBACK_LANGUAGE_COLOR = '#888888'
 
 export default function Projects() {
   return (
@@ -106,12 +68,12 @@ export default function Projects() {
               <div className="flex items-center justify-between pt-4 border-t border-border-dim">
                 <div className="flex items-center gap-4 text-text-muted text-xs">
                   {project.languages.map((lang) => (
-                    <span key={lang.name} className="flex items-center gap-1.5">
+                    <span key={lang} className="flex items-center gap-1.5">
                       <span
                         className="w-3 h-3 rounded-full inline-block"
-                        style={{ backgroundColor: lang.color }}
+                        style={{ backgroundColor: languageColors[lang] ?? FALLBACK_LANGUAGE_COLOR }}
                       />
-                      {lang.name}
+                      {lang}
                     </span>
                   ))}
                   {project.stars != null && (
