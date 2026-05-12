@@ -1,5 +1,5 @@
 import Navbar from './components/Navbar'
-import About from './components/About'
+import Hero from './components/Hero'
 import Skills from './components/Skills'
 import Experience, { Extracurricular } from './components/Experience'
 import Projects from './components/Projects'
@@ -21,7 +21,7 @@ function App() {
 
       <div className="relative z-10">
         <Navbar />
-        <About />
+        <Hero />
         <Experience />
         <Projects />
         <Extracurricular />
