@@ -20,6 +20,16 @@
     "demo": "https://hsc-random-tools.vercel.app/"
   },
   {
+    "name": "TalkKey",
+    "description": "Push-to-talk voice transcription tool for Windows. Hold a hotkey, speak, release and the transcribed text is injected at the cursor in any application via OpenAI Whisper, with a system tray UI and CLI mode for batch transcription.",
+    "tech": ["Python", "OpenAI Whisper"],
+    "languages": ["Python"],
+    "stars": null,
+    "forks": null,
+    "github": "https://github.com/MarkQuach12/TalkKey",
+    "demo": "https://github.com/MarkQuach12/TalkKey"
+  },
+  {
     "name": "Solar Quality Central",
     "description": "Informative website for Solar Quality Central featuring a headless CMS, AI chatbot, and admin content management system. Currently a work in progress.",
     "tech": ["Next.js", "ShadCN", "Express", "Node.js", "Docker", "Tailwind CSS"],

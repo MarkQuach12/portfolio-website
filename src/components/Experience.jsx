@@ -1,62 +1,6 @@
 import { GitCommit } from 'lucide-react'
-
-const experiences = [
-  {
-    hash: 'f7a2e1c',
-    company: 'EY',
-    role: 'Software Engineering Intern',
-    type: 'Work',
-    period: 'Jan 2026 - Feb 2026',
-    location: 'Sydney, NSW',
-    achievements: [
-      'Built a Java backend on GCP using Apache Kafka and Adobe Experience Platform HTTP Streaming API to ingest 5M+ insurance policies for IAG\'s 8.5M+ customer base.',
-      'Developed a FastAPI and BigQuery service on GCP to detect daily policy changes and sync updates to AEP.',
-      'Automated GCP test data seeding with a Python script, reducing execution time by 98% (5 min to 5 sec).',
-    ],
-    tech: ['Java', 'GCP', 'Apache Kafka', 'FastAPI', 'BigQuery', 'Python'],
-  },
-  {
-    hash: 'b3d8f4a',
-    company: 'Justice Support Centre',
-    role: 'Software Developer Intern',
-    type: 'Work',
-    period: 'Sep 2025 - Nov 2025',
-    location: 'Sydney, NSW',
-    achievements: [
-      'Architected an invoicing pipeline using FastAPI, Xero API and OAuth2, cutting weekly processing time by 93%.',
-      'Shipped an inventory management system (React, Express, PostgreSQL) used daily across all 3 office locations.',
-      'Automated EmploymentHero data extraction with a Selenium scraper on a scheduled AWS Lambda.',
-    ],
-    tech: ['React', 'FastAPI', 'PostgreSQL', 'AWS Lambda', 'Selenium'],
-  },
-  {
-    hash: 'c9e1d7b',
-    company: 'UNSW Software Development Society',
-    role: 'Sponsorships Director',
-    type: 'Extracurricular',
-    period: 'Nov 2025 - Present',
-    location: 'Sydney, NSW',
-    achievements: [
-      'Secured $25,000 in sponsorship funding, a 25% increase from the previous year by onboarding 7 new sponsors.',
-      'Co-organised UNSW\'s UNIHack hub, coordinating 7+ company partners and 1,000+ participants.',
-    ],
-    tech: ['Leadership', 'Event Management', 'Partnerships'],
-  },
-  {
-    hash: 'd4f6a2e',
-    company: 'UNSW Software Development Society',
-    role: 'Vice President of Internals',
-    type: 'Extracurricular',
-    period: 'Oct 2024 - Dec 2025',
-    location: 'Sydney, NSW',
-    achievements: [
-      'Oversaw HR operations, organising internal bonding initiatives engaging 250+ members with a 9/10 satisfaction rating.',
-      'Oversaw the Web Development Program with 30 trainees and 20 leads per term, achieving a 30% increase in trainee to lead conversion from 2024.',
-      'Built internal automation tools in Python and Node.js for reimbursement processing and onboarding, reducing manual admin time by 40%.',
-    ],
-    tech: ['Python', 'Node.js', 'Leadership', 'Program Management'],
-  },
-]
+import experiences from '../data/experience.json'
+import leadership from '../data/leadership.json'
 
 export default function Experience() {
   return (
@@ -76,7 +20,7 @@ export default function Experience() {
           <div className="absolute left-6 top-0 bottom-0 w-px bg-border-dim md:left-8" />
 
           <div className="space-y-8">
-            {experiences.filter(e => e.type === 'Work').map((exp) => (
+            {experiences.map((exp) => (
               <div key={exp.hash} className="relative pl-16 md:pl-20">
                 <div className="absolute left-[18px] md:left-[26px] top-6 w-4 h-4 rounded-full bg-terminal-green border-4 border-bg-primary z-10" />
 
@@ -126,7 +70,6 @@ export default function Experience() {
 }
 
 export function Extracurricular() {
-  const extras = experiences.filter(e => e.type === 'Extracurricular')
   return (
     <section id="extracurricular" className="py-24 px-6">
       <div className="max-w-6xl mx-auto">
@@ -140,7 +83,7 @@ export function Extracurricular() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-6">
-          {extras.map((exp) => (
+          {leadership.map((exp) => (
             <div key={exp.hash} className="bg-bg-card border border-border-dim rounded-lg overflow-hidden hover:border-terminal-purple/30 transition-colors">
               <div className="flex items-center gap-2 px-4 py-2.5 bg-bg-secondary border-b border-border-dim">
                 <GitCommit size={12} className="text-terminal-purple" />

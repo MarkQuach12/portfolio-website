@@ -1,0 +1,27 @@
+[
+  {
+    "hash": "c9e1d7b",
+    "company": "UNSW Software Development Society",
+    "role": "Sponsorships Director",
+    "period": "Nov 2025 - Present",
+    "location": "Sydney, NSW",
+    "achievements": [
+      "Secured $25,000 in sponsorship funding, a 25% increase from the previous year by onboarding 7 new sponsors.",
+      "Co-organised UNSW's UNIHack hub, coordinating 7+ company partners and 1,000+ participants."
+    ],
+    "tech": ["Leadership", "Event Management", "Partnerships"]
+  },
+  {
+    "hash": "d4f6a2e",
+    "company": "UNSW Software Development Society",
+    "role": "Vice President of Internals",
+    "period": "Oct 2024 - Dec 2025",
+    "location": "Sydney, NSW",
+    "achievements": [
+      "Oversaw HR operations, organising internal bonding initiatives engaging 250+ members with a 9/10 satisfaction rating.",
+      "Oversaw the Web Development Program with 30 trainees and 20 leads per term, achieving a 30% increase in trainee to lead conversion from 2024.",
+      "Built internal automation tools in Python and Node.js for reimbursement processing and onboarding, reducing manual admin time by 40%."
+    ],
+    "tech": ["Python", "Node.js", "Leadership", "Program Management"]
+  }
+]

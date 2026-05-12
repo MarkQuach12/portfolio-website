@@ -1,0 +1,52 @@
+[
+  {
+    "hash": "f7a2e1c",
+    "company": "EY",
+    "role": "Software Engineering Intern",
+    "period": "Jan 2026 - Feb 2026",
+    "location": "Sydney, NSW",
+    "achievements": [
+      "Built a Java backend on GCP using Apache Kafka and Adobe Experience Platform HTTP Streaming API to ingest 5M+ insurance policies for IAG's 8.5M+ customer base.",
+      "Developed a FastAPI and BigQuery service on GCP to detect daily policy changes and sync updates to AEP.",
+      "Automated GCP test data seeding with a Python script, reducing execution time by 98% (5 min to 5 sec)."
+    ],
+    "tech": ["Java", "GCP", "Apache Kafka", "FastAPI", "BigQuery", "Python"]
+  },
+  {
+    "hash": "b3d8f4a",
+    "company": "Justice Support Centre",
+    "role": "Software Developer Intern",
+    "period": "Sep 2025 - Nov 2025",
+    "location": "Sydney, NSW",
+    "achievements": [
+      "Architected an invoicing pipeline using FastAPI, Xero API and OAuth2, cutting weekly processing time by 93%.",
+      "Shipped an inventory management system (React, Express, PostgreSQL) used daily across all 3 office locations.",
+      "Automated EmploymentHero data extraction with a Selenium scraper on a scheduled AWS Lambda."
+    ],
+    "tech": ["React", "FastAPI", "PostgreSQL", "AWS Lambda", "Selenium"]
+  },
+  {
+    "hash": "p34kd7d",
+"company": "UNSW Computer Science and Engineering Society",
+    "role": "Casual Academic",
+    "period": "May 2026 - Present",
+    "location": "Sydney, NSW",
+    "achievements": [
+      "Academic tutor for COMP3900 Computer Science Projects focusing on software engineering principles, agile methodologies, and project management."
+    ],
+    "tech": ["React", "TypeScript", "Java", "Python", "Node.js", "Express", "PostgreSQL", "MongoDB", "Docker", "GitHub", "Jira", "Confluence"]
+  },
+  {
+    "hash": "t9m3k2p",
+    "company": "Private Tutoring",
+    "role": "Head Tutor",
+    "period": "Jun 2023 - Present",
+    "location": "Sydney, NSW",
+    "achievements": [
+      "Coordinated with students' learning needs and tailored lessons accordingly to achieve a 60% band 6 rate (90+%).",
+      "Created a supportive environment to help students feel more comfortable and engaged whilst learning Mathematics, leading to an average exam mark increase of 20%.",
+      "Built a Python-driven LaTeX automation pipeline that reduced document preparation time by approximately 70%."
+    ],
+    "tech": ["Python", "LaTeX"]
+  }
+]
