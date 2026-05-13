@@ -1,5 +1,8 @@
 import { useRef, useEffect, useState, useCallback } from 'react'
+import { motion, useReducedMotion } from 'motion/react'
 import technologies from '../data/tech-stack.json'
+
+const EASE_OUT_EXPO = [0.16, 1, 0.3, 1]
 
 // Preload icon images
 const iconImages = {}
@@ -32,6 +35,7 @@ function fibonacciSphere(count) {
 }
 
 export default function Skills() {
+  const reduced = useReducedMotion()
   const canvasRef = useRef(null)
   const containerRef = useRef(null)
   const animationRef = useRef(null)
@@ -324,18 +328,28 @@ export default function Skills() {
   return (
     <section id="skills" className="py-24 px-6">
       <div className="max-w-6xl mx-auto">
-        <div className="mb-8">
+        <motion.div
+          className="mb-8"
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-100px' }}
+          transition={{ duration: 0.6, ease: EASE_OUT_EXPO }}
+        >
           <p className="text-terminal-cyan text-sm mb-2 tracking-wider">
             <span className="text-text-muted">#</span> Skills.json
           </p>
           <h2 className="text-3xl md:text-4xl font-bold text-text-primary">
             Tech Stack
           </h2>
-        </div>
+        </motion.div>
 
-        <div
+        <motion.div
           ref={containerRef}
           className="relative w-full aspect-square max-w-2xl mx-auto"
+          initial={{ opacity: 0, y: reduced ? 0 : 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, margin: '-80px' }}
+          transition={{ duration: 0.82, ease: EASE_OUT_EXPO, delay: reduced ? 0 : 0.08 }}
         >
           <canvas
             ref={canvasRef}
@@ -344,7 +358,7 @@ export default function Skills() {
           <p className="absolute bottom-4 left-1/2 -translate-x-1/2 text-text-muted text-xs">
             drag to rotate
           </p>
-        </div>
+        </motion.div>
       </div>
     </section>
   )

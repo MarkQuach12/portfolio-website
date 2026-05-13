@@ -1,7 +1,11 @@
 import { Mail, Github, Linkedin, MapPin, Send } from 'lucide-react'
 import { useState } from 'react'
+import { motion, useReducedMotion } from 'motion/react'
+
+const EASE_OUT_EXPO = [0.16, 1, 0.3, 1]
 
 export default function Contact() {
+  const reduced = useReducedMotion()
   const [formData, setFormData] = useState({ name: '', email: '', message: '' })
 
   const handleSubmit = (e) => {
@@ -13,18 +17,30 @@ export default function Contact() {
   return (
     <section id="contact" className="py-24 px-6">
       <div className="max-w-6xl mx-auto">
-        <div className="mb-12">
+        <motion.div
+          className="mb-12"
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-100px' }}
+          transition={{ duration: 0.6, ease: EASE_OUT_EXPO }}
+        >
           <p className="text-terminal-amber text-sm mb-2 tracking-wider">
             <span className="text-text-muted">$</span> ./contact.exe
           </p>
           <h2 className="text-3xl md:text-4xl font-bold text-text-primary">
             Get In Touch
           </h2>
-        </div>
+        </motion.div>
 
         <div className="grid md:grid-cols-2 gap-8">
           {/* Contact info terminal */}
-          <div className="bg-bg-card border border-border-dim rounded-lg overflow-hidden">
+          <motion.div
+            className="bg-bg-card border border-border-dim rounded-lg overflow-hidden"
+            initial={{ opacity: 0, y: reduced ? 0 : 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, margin: '-80px' }}
+            transition={{ duration: 0.82, ease: EASE_OUT_EXPO, delay: 0 }}
+          >
             <div className="flex items-center gap-2 px-4 py-3 bg-bg-secondary border-b border-border-dim">
               <span className="w-3 h-3 rounded-full bg-terminal-red" />
               <span className="w-3 h-3 rounded-full bg-terminal-amber" />
@@ -68,10 +84,16 @@ export default function Contact() {
                 </a>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Contact form terminal */}
-          <div className="bg-bg-card border border-border-dim rounded-lg overflow-hidden">
+          <motion.div
+            className="bg-bg-card border border-border-dim rounded-lg overflow-hidden"
+            initial={{ opacity: 0, y: reduced ? 0 : 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, margin: '-80px' }}
+            transition={{ duration: 0.82, ease: EASE_OUT_EXPO, delay: reduced ? 0 : 0.08 }}
+          >
             <div className="flex items-center gap-2 px-4 py-3 bg-bg-secondary border-b border-border-dim">
               <span className="w-3 h-3 rounded-full bg-terminal-red" />
               <span className="w-3 h-3 rounded-full bg-terminal-amber" />
@@ -125,7 +147,7 @@ export default function Contact() {
                 <Send size={16} /> Send Message
               </button>
             </form>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

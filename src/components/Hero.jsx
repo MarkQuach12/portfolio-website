@@ -1,5 +1,6 @@
 import { Github, ArrowRight, User, MapPin, Wifi, GraduationCap } from 'lucide-react'
 import { motion, useReducedMotion } from 'motion/react'
+import TextType from './ui/TextType'
 
 const EASE_OUT_EXPO = [0.16, 1, 0.3, 1]
 const EASE_MICRO = [0.4, 0, 0.2, 1]
@@ -35,21 +36,27 @@ export default function Hero() {
           >
             <span className="text-text-muted">$</span> whoami
           </motion.p>
-          <motion.h1
-            className="text-3xl md:text-5xl font-bold mb-2"
-            {...fadeUp(0.1)}
-          >
-            <span className="text-text-primary">Mark </span>
-            <span className="text-terminal-green" style={{ textShadow: '0 0 20px rgba(255,140,0,0.3)' }}>
-              Quach
-            </span>
-          </motion.h1>
-          <motion.p
-            className="text-text-secondary text-lg"
-            {...fadeUp(0.2)}
-          >
-            Full Stack Software Engineer
-          </motion.p>
+          <h1 className="text-3xl md:text-5xl font-bold mb-2 text-terminal-green" style={{ textShadow: '0 0 20px rgba(255,140,0,0.3)' }}>
+            <TextType
+              text="Mark Quach"
+              as="span"
+              loop={false}
+              showCursor={false}
+              typingSpeed={reduced ? 0 : 55}
+            />
+          </h1>
+          <p className="text-text-secondary text-lg min-h-[1.75rem]">
+            <TextType
+              text="Full Stack Software Engineer"
+              as="span"
+              loop={false}
+              showCursor={!reduced}
+              cursorCharacter="_"
+              cursorClassName="text-terminal-green"
+              typingSpeed={reduced ? 0 : 45}
+              initialDelay={reduced ? 0 : 750}
+            />
+          </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-6 mb-8">
