@@ -1,16 +1,13 @@
 # Mark Quach - Portfolio Website
 
-A terminal-themed personal portfolio website showcasing my work experience, projects, and technical skills. Built with a retro CLI aesthetic featuring interactive elements like a 3D rotating tech sphere, git-commit-styled experience timeline, and GitHub-inspired project cards.
-
-## Screenshots
-<img width="1327" height="478" alt="image" src="https://github.com/user-attachments/assets/ae2e33c6-9cce-470e-bf71-202bc7e165fa" />
-
+A calm, document-style personal portfolio inspired by note-taking workspaces: a collapsible sidebar, a cover with an emoji page icon, callouts, toggles, a gallery of projects and table views of experience, in light and dark themes. Blog posts can be pulled in from a Notion database.
 
 ## Table of Contents
 
 - [Technologies Used](#technologies-used)
 - [Installation](#installation)
 - [Usage](#usage)
+- [Writing from Notion](#writing-from-notion)
 - [Project Structure](#project-structure)
 
 ## Technologies Used
@@ -18,9 +15,9 @@ A terminal-themed personal portfolio website showcasing my work experience, proj
 
 | Category       | Technologies                      |
 | -------------- | --------------------------------- |
-| **Frontend**   | React 19, Tailwind CSS v4, Vite 8 |
-| **Icons**      | Lucide React, Devicon CDN         |
-| **Font**       | JetBrains Mono (Google Fonts)     |
+| **Frontend**   | React 19, Vite 8, plain CSS with design tokens |
+| **Font**       | Inter (Google Fonts)              |
+| **Content**    | JSON data files, Notion API for writing |
 | **Deployment** | Vercel                            |
 
 
@@ -58,31 +55,73 @@ npm run preview
 
 # Run linting
 npm run lint
+
+# Pull writing from Notion (see below)
+npm run sync:writing
 ```
 
 ### Key Features
 
-- **Interactive 3D Tech Sphere** - Canvas-based rotating sphere displaying 30+ technologies with drag interaction
-- **Git Commit Timeline** - Work experience styled as git commits with hash IDs
-- **GitHub-style Project Cards** - Featured repositories with language indicators, tech tags, and demo links
-- **Terminal UI** - Window chrome, command-line formatting, and JSON-styled contact info
-- **Responsive Design** - Fully responsive across mobile, tablet, and desktop
+- **Workspace layout** - Collapsible sidebar that tracks the current section, with a slide-out menu on mobile
+- **Projects gallery** - Cards with drawn thumbnails, tech tags and links
+- **Table views** - Experience and leadership as tables, with toggles for highlights
+- **Light and dark themes** - Follow the system setting and remember the visitor's choice
+- **Writing from Notion** - Posts synced from a Notion database and rendered as Notion-style blocks
+
+## Writing from Notion
+
+The Writing section is filled from a Notion database by `scripts/sync-notion.mjs`, which saves posts to `src/content/writing.json` and downloads their images to `public/writing/` (Notion's image links expire). Until a sync has run, the section shows a "coming soon" callout.
+
+### One-time setup
+
+1. Create an internal integration at <https://www.notion.so/profile/integrations> and copy its secret.
+2. Create a Notion database for your posts. The script recognises these properties (only the title is required):
+
+   | Property | Type | Purpose |
+   | --- | --- | --- |
+   | Name | Title | Post title |
+   | Published | Checkbox (or a `Status` status/select with a "Published" option) | Only published pages are synced; without it, every page is |
+   | Date | Date | Post date (falls back to the page's created time) |
+   | Summary | Text | One-line summary shown in the list |
+   | Tags | Multi-select | Tags, in their Notion colours |
+   | Slug | Text | URL slug (defaults to the title) |
+
+   The page's emoji icon is used as the post icon. Write the post itself in the page body.
+3. In the database's `···` menu → **Connections**, add your integration.
+4. Copy the database ID from its URL (the 32-character ID before `?v=`).
+
+### Syncing
+
+Put the credentials in `.env.local` at the repo root (ignored by git):
+
+```bash
+NOTION_TOKEN=secret_xxx
+NOTION_WRITING_DATABASE_ID=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+```
+
+Then run `npm run sync:writing` and commit the updated `src/content/writing.json` and `public/writing/`.
+
+The sync also runs before every `npm run build`. Add the same two variables in Vercel (Project Settings → Environment Variables) and each deploy pulls the latest published posts. Without them, the build keeps the committed `writing.json`.
+
+Supported blocks: paragraphs, headings (including toggle headings), bulleted, numbered and to-do lists, toggles, quotes, callouts, code, dividers, images, bookmarks/embeds (as links), tables and columns. Posts are served at `#/writing/<slug>`.
 
 ## Project Structure
 
 ```
+scripts/
+├── sync-notion.mjs         # Pulls Notion posts into src/content/writing.json
+└── notion-transform.mjs    # Converts Notion API objects to compact JSON
 src/
-├── components/
-│   ├── Navbar.jsx        # Fixed navigation with mobile menu
-│   ├── About.jsx         # Landing section with system info cards
-│   ├── Skills.jsx        # 3D rotating tech sphere
-│   ├── Experience.jsx    # Work experience + extracurricular sections
-│   ├── Projects.jsx      # GitHub-style project cards
-│   ├── Contact.jsx       # JSON contact info + contact form
-│   └── Footer.jsx        # Site footer
-├── App.jsx               # Main app layout with grid overlay
-├── index.css             # Tailwind theme configuration
-└── main.jsx              # App entry point
+├── components/             # Sidebar, top bar, cover, blocks, Notion renderer
+├── content/writing.json    # Synced posts (generated)
+├── data/                   # Profile, experience, leadership, projects, tech stack
+├── hooks/                  # Theme, hash routing, active section
+├── pages/                  # Home page and post page
+├── styles/
+│   ├── tokens.css          # Colour, spacing and size tokens (light + dark)
+│   └── blocks.css          # Layout and block styles
+├── App.jsx                 # App shell
+└── main.jsx                # App entry point
 ```
 
 ## License
