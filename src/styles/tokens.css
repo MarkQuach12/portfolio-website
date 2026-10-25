@@ -1,0 +1,92 @@
+/* Design tokens. Light is the default; dark overrides colours only. */
+:root,
+[data-theme="light"] {
+  --bg: #ffffff;
+  --bg-sidebar: #f7f7f5;
+  --bg-hover: #efefed;
+  --bg-card: #ffffff;
+  --callout-bg: #f7f6f3;
+  --text: #37352f;
+  --text-muted: #6f6e69;
+  --text-faint: #a3a29e;
+  --divider: #ebebea;
+  --border: #e0dfdc;
+  --accent: #2383e2;
+  --link-underline: #c8c7c3;
+
+  --tag-gray-bg: #ebeae7;   --tag-gray-text: #4a4843;
+  --tag-brown-bg: #efe5df;  --tag-brown-text: #6b4733;
+  --tag-orange-bg: #fbe4d2; --tag-orange-text: #8a4513;
+  --tag-yellow-bg: #fbf0cc; --tag-yellow-text: #6f5310;
+  --tag-green-bg: #dbeddb;  --tag-green-text: #2b5c3a;
+  --tag-blue-bg: #d9e8f3;   --tag-blue-text: #1f4f75;
+  --tag-purple-bg: #e9e0f0; --tag-purple-text: #5a3672;
+  --tag-pink-bg: #f6e1ea;   --tag-pink-text: #7d2e52;
+  --tag-red-bg: #fde2dd;    --tag-red-text: #8f2a20;
+
+  --cover-sky: #e3eef6;
+  --cover-sea: #c4dbec;
+  --cover-deep: #9fc2de;
+  --cover-sand: #f2e8da;
+  --cover-sun: #fbf0cc;
+
+  --shadow-card: 0 0 0 1px rgba(15, 15, 15, 0.06), 0 2px 4px rgba(15, 15, 15, 0.05);
+
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  --bg: #191919;
+  --bg-sidebar: #202020;
+  --bg-hover: #2a2a2a;
+  --bg-card: #202020;
+  --callout-bg: #252525;
+  --text: #e6e6e4;
+  --text-muted: #9b9a97;
+  --text-faint: #6b6a67;
+  --divider: #2e2e2e;
+  --border: #3a3a3a;
+  --accent: #4c9ee6;
+  --link-underline: #5a5a58;
+
+  --tag-gray-bg: #2f2f2f;   --tag-gray-text: #d4d4d4;
+  --tag-brown-bg: #3d322b;  --tag-brown-text: #e0cbbd;
+  --tag-orange-bg: #4a3222; --tag-orange-text: #f2c7a3;
+  --tag-yellow-bg: #403720; --tag-yellow-text: #ecd79a;
+  --tag-green-bg: #263d30;  --tag-green-text: #b5dcc0;
+  --tag-blue-bg: #22394a;   --tag-blue-text: #a9cbe6;
+  --tag-purple-bg: #362c40; --tag-purple-text: #d3bfe4;
+  --tag-pink-bg: #43293a;   --tag-pink-text: #ecb8cf;
+  --tag-red-bg: #4a2a26;    --tag-red-text: #f2b5ab;
+
+  --cover-sky: #1e2b36;
+  --cover-sea: #284459;
+  --cover-deep: #36607f;
+  --cover-sand: #2e2a24;
+  --cover-sun: #4a4130;
+
+  --shadow-card: 0 0 0 1px rgba(255, 255, 255, 0.07), 0 2px 4px rgba(0, 0, 0, 0.35);
+
+  color-scheme: dark;
+}
+
+:root {
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-24: 96px;
+
+  --radius-sm: 3px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+
+  --content-width: 720px;
+  --sidebar-width: 240px;
+  --cover-height: 240px;
+  --icon-size: 78px;
+
+  --font-sans: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+}
